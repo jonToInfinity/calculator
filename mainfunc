@@ -1,0 +1,49 @@
+class Addition:
+    def calculate(self, a, b):
+        return a + b
+
+class Subtraction:
+    def calculate(self, a, b):
+        return a - b
+
+class Multiplication:
+    def calculate(self, a, b):
+        return a * b
+
+class Division:
+    def calculate(self, a, b):
+        if b == 0:
+            return "Error! Division by zero."
+        return a / b
+
+# Main function to use the calculator
+def main():
+    print("Basic Calculator")
+    print("Choose operation:")
+    print("1: Addition")
+    print("2: Subtraction")
+    print("3: Multiplication")
+    print("4: Division")
+    
+    choice = input("Enter choice (1/2/3/4): ")
+    
+    if choice in ['1', '2', '3', '4']:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if choice == '1':
+            operation = Addition()
+        elif choice == '2':
+            operation = Subtraction()
+        elif choice == '3':
+            operation = Multiplication()
+        elif choice == '4':
+            operation = Division()
+
+        result = operation.calculate(num1, num2)
+        print(f"The result is: {result}")
+    else:
+        print("Invalid input! Please choose a valid option.")
+
+if __name__ == "__main__":
+    main()
